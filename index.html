@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saudagar Perfumers — Premium Fragrances</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --gold:#C5A028;--gold2:#E8C96A;--gold3:#8B6914;
+  --deep:#080604;--text:#F5EDD5;--muted:rgba(245,237,213,0.5);
+  --glass:rgba(197,160,40,0.07);--glass-b:rgba(197,160,40,0.22);
+}
+body{font-family:'Raleway',sans-serif;background:var(--deep);color:var(--text);overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:0;
+  background:radial-gradient(ellipse at 10% 10%,rgba(197,160,40,0.1) 0%,transparent 50%),
+  radial-gradient(ellipse at 90% 90%,rgba(139,105,20,0.12) 0%,transparent 50%),
+  linear-gradient(160deg,#0D0900 0%,#080604 50%,#0A0700 100%)}
+.arabesque{position:fixed;inset:0;z-index:0;opacity:0.035;
+  background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 50%),
+  repeating-linear-gradient(-45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 50%);
+  background-size:40px 40px}
+.orb{position:fixed;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0}
+.orb1{width:600px;height:600px;top:-200px;left:-200px;background:rgba(197,160,40,0.06);animation:drift 12s ease-in-out infinite}
+.orb2{width:500px;height:500px;bottom:-100px;right:-100px;background:rgba(139,60,20,0.08);animation:drift 9s ease-in-out infinite reverse}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-40px)}}
+.wrap{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.glass{background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--glass-b);border-radius:20px}
+.glass2{background:rgba(197,160,40,0.12);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(197,160,40,0.35);border-radius:24px}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(8,6,4,0.8);backdrop-filter:blur(24px);border-bottom:1px solid rgba(197,160,40,0.18);padding:.9rem 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.logo-wrap{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.logo-icon{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold3));display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.logo-text{font-family:'Amiri',serif;font-size:1.3rem;color:var(--gold);line-height:1}
+.logo-sub{font-size:.52rem;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);font-family:'Raleway'}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-actions{display:flex;gap:.75rem;align-items:center}
+.btn-wa{background:linear-gradient(135deg,#25D366,#128C7E);color:white;border:none;padding:.55rem 1.2rem;border-radius:50px;font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-weight:600;transition:all .3s}
+.btn-wa:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(37,211,102,.35)}
+.btn-order{background:linear-gradient(135deg,var(--gold),var(--gold3));color:#080604;border:none;padding:.55rem 1.4rem;border-radius:50px;font-family:'Raleway';font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-weight:700;transition:all .3s}
+.btn-order:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(197,160,40,.4)}
+
+/* ── BISMILLAH ── */
+.bismillah{text-align:center;padding:.9rem;background:linear-gradient(to right,transparent,rgba(197,160,40,.08),transparent);border-bottom:1px solid rgba(197,160,40,.12);position:relative;z-index:2;margin-top:62px}
+.bismillah span{font-family:'Amiri',serif;font-size:1.5rem;color:var(--gold);letter-spacing:.1em}
+
+/* ── HERO ── */
+.hero{min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 0 3rem;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(197,160,40,.1);border:1px solid rgba(197,160,40,.3);border-radius:50px;padding:.35rem 1rem;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-arabic{font-family:'Amiri',serif;font-size:clamp(1rem,3vw,1.4rem);color:rgba(197,160,40,.6);letter-spacing:.2em;margin-bottom:.5rem}
+.hero-title{font-family:'Amiri',serif;font-size:clamp(3rem,9vw,7.5rem);font-weight:700;line-height:.95;margin-bottom:.5rem;background:linear-gradient(135deg,var(--text) 30%,var(--gold) 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-title2{font-family:'Cinzel',serif;font-size:clamp(.9rem,2.5vw,1.3rem);letter-spacing:.5em;color:var(--gold);margin-bottom:1.5rem;text-transform:uppercase}
+.hero-tagline{font-size:.85rem;color:var(--muted);max-width:480px;margin:0 auto 3rem;line-height:1.9;letter-spacing:.04em}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:4rem}
+.btn-prim{background:linear-gradient(135deg,var(--gold) 0%,var(--gold3) 100%);color:#080604;border:none;padding:1rem 2.5rem;border-radius:50px;font-family:'Raleway';font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-weight:700;transition:all .3s}
+.btn-prim:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(197,160,40,.45)}
+.btn-sec{background:transparent;color:var(--text);border:1px solid rgba(197,160,40,.4);padding:1rem 2.5rem;border-radius:50px;font-family:'Raleway';font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.btn-sec:hover{border-color:var(--gold);background:rgba(197,160,40,.08)}
+.hero-stats{display:flex;gap:3rem;justify-content:center;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-n{font-family:'Amiri',serif;font-size:2.4rem;color:var(--gold)}
+.stat-l{font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+
+/* ── SECTION COMMONS ── */
+section{padding:7rem 0;position:relative;z-index:2}
+.sec-tag{font-size:.62rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.75rem}
+.sec-title{font-family:'Amiri',serif;font-size:clamp(2rem,5vw,3.5rem);line-height:1.1;margin-bottom:.5rem}
+.sec-title em{font-style:italic;color:var(--gold)}
+.sec-center{text-align:center}
+.sec-sub{color:var(--muted);font-size:.82rem;line-height:1.8;max-width:500px;margin:.75rem auto 0}
+.ornament{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.5rem 0;color:rgba(197,160,40,.4);font-size:.8rem}
+.ornament::before,.ornament::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(197,160,40,.35),transparent)}
+
+/* ══════════════════════════════════════
+   FEATURED COLLECTIONS — AURA TALL CARDS
+   ══════════════════════════════════════ */
+.featured-section{padding:7rem 0}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+
+/* The tall card */
+.feat-card{
+  position:relative;overflow:hidden;border-radius:24px;cursor:pointer;
+  aspect-ratio:3/4;
+  transition:transform .45s cubic-bezier(.25,.8,.25,1),box-shadow .45s;
+}
+.feat-card:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(0,0,0,.5)}
+
+/* Gradient backgrounds exactly like AURA screenshot */
+.fc-bg{position:absolute;inset:0;transition:transform .6s ease}
+.feat-card:hover .fc-bg{transform:scale(1.06)}
+.fc-purple{background:linear-gradient(160deg,#1a0f2e 0%,#3a1a55 35%,#7a3060 65%,#c87070 100%)}
+.fc-teal  {background:linear-gradient(160deg,#091a12 0%,#1a4d38 35%,#2d7a55 65%,#6abf90 100%)}
+.fc-amber {background:linear-gradient(160deg,#1a1208 0%,#4d3010 35%,#8a5a15 65%,#c8982a 100%)}
+.fc-navy  {background:linear-gradient(160deg,#080f1a 0%,#142040 35%,#1e3a70 65%,#3a70c0 100%)}
+.fc-rose  {background:linear-gradient(160deg,#1a080f 0%,#4d1525 35%,#8a2040 65%,#c86080 100%)}
+.fc-forest{background:linear-gradient(160deg,#080f08 0%,#143014 35%,#2a6028 65%,#5aaa55 100%)}
+
+/* Particle shimmer overlay */
+.fc-shimmer{
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,.18) 1px,transparent 1px);
+  background-size:28px 28px;opacity:.25;
+  animation:shimshift 8s linear infinite;
+}
+@keyframes shimshift{0%{background-position:0 0}100%{background-position:56px 56px}}
+
+/* Badge top right */
+.fc-badge{
+  position:absolute;top:1.4rem;right:1.4rem;z-index:3;
+  background:rgba(0,0,0,.35);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.2);border-radius:50px;
+  padding:.3rem 1rem;font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;
+  color:rgba(255,255,255,.9);font-family:'Raleway';font-weight:600;
+}
+
+/* Bottom info panel — glass overlay like AURA */
+.fc-info{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  padding:2rem 1.75rem 1.75rem;
+  background:linear-gradient(to top,rgba(0,0,0,.82) 0%,rgba(0,0,0,.45) 60%,transparent 100%);
+}
+.fc-icon{font-size:2.8rem;display:block;margin-bottom:1.1rem}
+.fc-cat{font-size:.58rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.4rem;font-family:'Raleway'}
+.fc-name{font-family:'Amiri',serif;font-size:1.85rem;font-weight:700;line-height:1;margin-bottom:.5rem;color:#fff}
+.fc-desc{font-size:.72rem;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:1.1rem}
+.fc-price{font-family:'Amiri',serif;font-size:1.45rem;color:var(--gold2)}
+
+/* hover: show order button */
+.fc-btn{
+  display:inline-block;margin-top:.75rem;padding:.5rem 1.4rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold3));
+  color:#080604;border:none;border-radius:50px;font-family:'Raleway';
+  font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
+  cursor:pointer;font-weight:700;
+  opacity:0;transform:translateY(8px);
+  transition:opacity .35s,transform .35s;
+}
+.feat-card:hover .fc-btn{opacity:1;transform:translateY(0)}
+
+/* ── FILTER ROW ── */
+.filter-row{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-bottom:3rem}
+.filter-btn{padding:.45rem 1.2rem;border-radius:50px;border:1px solid rgba(197,160,40,.25);background:transparent;color:var(--muted);font-family:'Raleway';font-size:.68rem;letter-spacing:.12em;cursor:pointer;transition:all .3s}
+.filter-btn:hover,.filter-btn.active{background:rgba(197,160,40,.15);border-color:var(--gold);color:var(--gold)}
+
+/* ── ALL PRODUCTS GRID (compact cards) ── */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.25rem}
+.prod-card{border-radius:20px;overflow:hidden;cursor:pointer;transition:all .35s;position:relative}
+.prod-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(197,160,40,.18)}
+.prod-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:3.2rem;position:relative;overflow:hidden}
+.prod-body{padding:1.2rem}
+.prod-tag{display:inline-block;padding:.18rem .65rem;border-radius:50px;font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.55rem}
+.tag-new{background:rgba(26,74,42,.8);color:#5DCF7A;border:1px solid rgba(93,207,122,.3)}
+.tag-bestseller{background:rgba(197,160,40,.15);color:var(--gold);border:1px solid rgba(197,160,40,.35)}
+.tag-limited{background:rgba(139,26,26,.6);color:#F08080;border:1px solid rgba(240,128,128,.3)}
+.tag-sample{background:rgba(60,60,100,.6);color:#A0A0F0;border:1px solid rgba(160,160,240,.3)}
+.prod-name{font-family:'Amiri',serif;font-size:1.15rem;margin-bottom:.2rem}
+.prod-vol{font-size:.62rem;color:var(--muted);letter-spacing:.1em;margin-bottom:.6rem}
+.prod-notes{font-size:.66rem;color:rgba(245,237,213,.4);margin-bottom:.9rem;line-height:1.6}
+.prod-footer{display:flex;align-items:center;justify-content:space-between}
+.prod-price{font-family:'Amiri',serif;font-size:1.2rem;color:var(--gold)}
+.prod-add{width:32px;height:32px;border-radius:50%;border:1px solid rgba(197,160,40,.4);background:transparent;color:var(--gold);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.prod-add:hover{background:var(--gold);color:#080604}
+.pb1{background:linear-gradient(135deg,#1a0f2a,#3d1f50)}
+.pb2{background:linear-gradient(135deg,#0a1a0f,#1f4d3d)}
+.pb3{background:linear-gradient(135deg,#1a0f0a,#4d2510)}
+.pb4{background:linear-gradient(135deg,#0f0f1a,#1f1f50)}
+.pb5{background:linear-gradient(135deg,#1a1a0a,#4d4510)}
+.pb6{background:linear-gradient(135deg,#1a0a0a,#4d1010)}
+
+/* ── SAMPLE SERVICE ── */
+.sample-card{padding:4rem;max-width:860px;margin:0 auto;text-align:center}
+.sample-steps{display:flex;gap:1.5rem;margin:3rem 0;flex-wrap:wrap;justify-content:center}
+.step{flex:1;min-width:150px;max-width:190px;text-align:center}
+.step-n{font-family:'Amiri',serif;font-size:2.5rem;color:rgba(197,160,40,.2);line-height:1}
+.step-icon{font-size:1.8rem;margin:.25rem 0}
+.step-title{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.step-desc{font-size:.7rem;color:var(--muted);line-height:1.7}
+.step-arrow{align-self:center;color:rgba(197,160,40,.3);font-size:1.2rem;margin-top:-20px}
+
+/* ── EVENTS ── */
+.events-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
+.event-card{padding:2.5rem;position:relative;overflow:hidden}
+.event-card::before{content:attr(data-icon);position:absolute;right:-10px;top:-10px;font-size:7rem;opacity:.05;line-height:1}
+.event-tag{display:inline-block;padding:.2rem .75rem;border-radius:50px;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;background:rgba(197,160,40,.12);border:1px solid rgba(197,160,40,.25);color:var(--gold);margin-bottom:1rem}
+.event-title{font-family:'Amiri',serif;font-size:1.5rem;margin-bottom:.75rem}
+.event-desc{font-size:.76rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem}
+.event-features{display:flex;flex-direction:column;gap:.4rem}
+.ef{font-size:.7rem;color:var(--muted);display:flex;align-items:center;gap:.5rem}
+.ef::before{content:'✦';color:var(--gold);font-size:.52rem;flex-shrink:0}
+
+/* ── DELIVERY ── */
+.del-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.25rem;margin-top:3rem}
+.del-card{padding:2rem;text-align:center}
+.del-icon{font-size:2rem;margin-bottom:1rem;display:block}
+.del-title{font-family:'Amiri',serif;font-size:1.15rem;margin-bottom:.5rem}
+.del-desc{font-size:.73rem;color:var(--muted);line-height:1.7}
+.del-highlight{color:var(--gold);font-weight:600}
+
+/* ── WHY ── */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-top:3rem}
+.why-card{padding:2rem;text-align:center;transition:transform .3s}
+.why-card:hover{transform:translateY(-4px)}
+.why-icon{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,rgba(197,160,40,.2),rgba(197,160,40,.04));border:1px solid rgba(197,160,40,.25);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin:0 auto 1rem}
+.why-title{font-family:'Amiri',serif;font-size:1.1rem;margin-bottom:.5rem}
+.why-desc{font-size:.7rem;color:var(--muted);line-height:1.7}
+
+/* ── TESTIMONIALS ── */
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:3rem}
+.test-card{padding:2rem}
+.stars{color:var(--gold);font-size:.85rem;letter-spacing:.1em;margin-bottom:1rem}
+.test-q{font-family:'Amiri',serif;font-size:1rem;font-style:italic;line-height:1.7;color:rgba(245,237,213,.75);margin-bottom:1.25rem}
+.test-auth{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.test-auth strong{color:var(--gold);font-weight:400}
+
+/* ── CONTACT ── */
+.contact-card{padding:4rem;max-width:800px;margin:0 auto;text-align:center}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem;margin:3rem 0}
+.contact-item{padding:1.5rem;text-align:center}
+.contact-icon{font-size:1.5rem;margin-bottom:.75rem;display:block}
+.contact-label{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.contact-val{font-size:.78rem;color:var(--text);line-height:1.6}
+.contact-val a{color:var(--text);text-decoration:none}
+.contact-val a:hover{color:var(--gold)}
+.wa-big{display:inline-flex;align-items:center;gap:.75rem;background:linear-gradient(135deg,#25D366,#128C7E);color:white;border:none;padding:1.1rem 3rem;border-radius:50px;font-family:'Raleway';font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-weight:700;transition:all .3s;margin-top:1rem}
+.wa-big:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,211,102,.4)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid rgba(197,160,40,.12);padding:3rem 0;text-align:center;position:relative;z-index:2}
+.footer-arabic{font-family:'Amiri',serif;font-size:1.4rem;color:rgba(197,160,40,.4);margin-bottom:.5rem}
+.footer-logo{font-family:'Amiri',serif;font-size:2.2rem;color:var(--gold)}
+.footer-sub{font-size:.58rem;letter-spacing:.45em;text-transform:uppercase;color:var(--muted);margin:.3rem 0 1.5rem}
+.footer-links{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;transition:color .3s}
+.footer-links a:hover{color:var(--gold)}
+.footer-copy{font-size:.63rem;color:rgba(245,237,213,.2)}
+.gold-line{width:80px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:.75rem auto}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .events-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .feat-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hero-stats{gap:1.5rem}
+  .sample-card,.contact-card{padding:2.5rem 1.2rem}
+  .step-arrow{display:none}
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.f1{animation:fadeUp .8s .1s both}
+.f2{animation:fadeUp .8s .3s both}
+.f3{animation:fadeUp .8s .5s both}
+.f4{animation:fadeUp .8s .7s both}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="arabesque"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="#" class="logo-wrap">
+        <div class="logo-icon">🕌</div>
+        <div>
+          <div class="logo-text">Saudagar Perfumers</div>
+          <div class="logo-sub">Premium Fragrances · Anakapalle</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#featured">Collections</a></li>
+        <li><a href="#products">All Products</a></li>
+        <li><a href="#sample">Samples</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-wa" onclick="openWA()">💬 WhatsApp</button>
+        <button class="btn-order" onclick="openWA()">Order Now</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── BISMILLAH ── -->
+<div class="bismillah"><span>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</span></div>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-badge f1">🌙 Trusted · Anakapalle, Andhra Pradesh</div>
+    <div class="hero-arabic f2">عطور سوداغار — حيث كل عطر يحكي قصة</div>
+    <h1 class="hero-title f2">Saudagar<br>Perfumers</h1>
+    <div class="hero-title2 f2">Where Every Scent Tells a Story</div>
+    <p class="hero-tagline f3">Indulge in the art of fine fragrances — luxurious perfumes crafted to captivate your senses. Timeless classics, modern elegance, and exotic blends for every personality and occasion.</p>
+    <div class="hero-btns f3">
+      <button class="btn-prim" onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})">Explore Collection</button>
+      <button class="btn-sec" onclick="document.getElementById('sample').scrollIntoView({behavior:'smooth'})">Try a Sample First</button>
+    </div>
+    <div class="hero-stats f4">
+      <div class="stat"><div class="stat-n">50+</div><div class="stat-l">Unique Fragrances</div></div>
+      <div class="stat"><div class="stat-n">COD</div><div class="stat-l">Cash on Delivery</div></div>
+      <div class="stat"><div class="stat-n">PAN</div><div class="stat-l">India Delivery</div></div>
+      <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Cruelty Free</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FEATURED COLLECTIONS — AURA TALL CARDS
+     ══════════════════════════════════════ -->
+<section class="featured-section" id="featured">
+  <div class="wrap">
+    <div class="sec-center">
+      <span class="sec-tag">Signature Collections</span>
+      <h2 class="sec-title">Three Worlds,<br><em>One Signature</em></h2>
+      <p class="sec-sub">Our most-loved collections — handpicked for every mood, occasion, and soul</p>
+    </div>
+    <div class="ornament">✦ ✦ ✦</div>
+    <div class="feat-grid">
+
+      <!-- Card 1 -->
+      <div class="feat-card" onclick="orderFeat('Ameer Al Oud 110ml')">
+        <div class="fc-bg fc-amber"></div>
+        <div class="fc-shimmer"></div>
+        <span class="fc-badge">BESTSELLER</span>
+        <div class="fc-info">
+          <span class="fc-icon">👑</span>
+          <div class="fc-cat">Royal &amp; Oud</div>
+          <div class="fc-name">Ameer Al Oud</div>
+          <div class="fc-desc">Premium oud · Bakhoor · Royal musk. The fragrance of kings.</div>
+          <div class="fc-price">₹1,499</div>
+          <button class="fc-btn" onclick="orderFeat('Ameer Al Oud')">Order Now</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="feat-card" onclick="orderFeat('Arabic Style Balilour')">
+        <div class="fc-bg fc-purple"></div>
+        <div class="fc-shimmer"></div>
+        <span class="fc-badge">LIMITED</span>
+        <div class="fc-info">
+          <span class="fc-icon">🕌</span>
+          <div class="fc-cat">Arabic &amp; Oriental</div>
+          <div class="fc-name">Arabic Style Balilour</div>
+          <div class="fc-desc">Arabic oud · Rose · Warm musk. The soul of the Orient.</div>
+          <div class="fc-price">₹1,199</div>
+          <button class="fc-btn" onclick="orderFeat('Arabic Style Balilour')">Order Now</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="feat-card" onclick="orderFeat('Sheraya Amber 150ml')">
+        <div class="fc-bg fc-teal"></div>
+        <div class="fc-shimmer"></div>
+        <span class="fc-badge">TOP PICK</span>
+        <div class="fc-info">
+          <span class="fc-icon">🍂</span>
+          <div class="fc-cat">Warm &amp; Sensual</div>
+          <div class="fc-name">Sheraya Amber</div>
+          <div class="fc-desc">Amber · Warm spice · Vanilla. Unforgettable warmth.</div>
+          <div class="fc-price">₹899</div>
+          <button class="fc-btn" onclick="orderFeat('Sheraya Amber')">Order Now</button>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="feat-card" onclick="orderFeat('Black Code 100ml')">
+        <div class="fc-bg fc-navy"></div>
+        <div class="fc-shimmer"></div>
+        <span class="fc-badge">BESTSELLER</span>
+        <div class="fc-info">
+          <span class="fc-icon">🖤</span>
+          <div class="fc-cat">Bold &amp; Masculine</div>
+          <div class="fc-name">Black Code</div>
+          <div class="fc-desc">Pepper · Amber · Sandalwood. Dark, intense, commanding.</div>
+          <div class="fc-price">₹1,000</div>
+          <button class="fc-btn" onclick="orderFeat('Black Code 100ml')">Order Now</button>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="feat-card" onclick="orderFeat('Ocean Blue 100ml')">
+        <div class="fc-bg fc-forest"></div>
+        <div class="fc-shimmer"></div>
+        <span class="fc-badge">NEW</span>
+        <div class="fc-info">
+          <span class="fc-icon">🌊</span>
+          <div class="fc-cat">Fresh &amp; Aquatic</div>
+          <div class="fc-name">Ocean Blue</div>
+          <div class="fc-desc">Sea salt · Aquatic breeze · Clean musk. Freedom in a bottle.</div>
+          <div class="fc-price">₹1,000</div>
+          <button class="fc-btn" onclick="orderFeat('Ocean Blue 100ml')">Order Now</button>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="feat-card" onclick="orderFeat('Purple Oud')">
+        <div class="fc-bg fc-rose"></div>
+        <div class="fc-shimmer"></div>
+        <span class="fc-badge">LIMITED</span>
+        <div class="fc-info">
+          <span class="fc-icon">💜</span>
+          <div class="fc-cat">Exotic &amp; Mystical</div>
+          <div class="fc-name">Purple Oud</div>
+          <div class="fc-desc">Oud · Saffron · Deep musk. Rare, mysterious, unforgettable.</div>
+          <div class="fc-price">₹999</div>
+          <button class="fc-btn" onclick="orderFeat('Purple Oud')">Order Now</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── ALL PRODUCTS ── -->
+<section id="products">
+  <div class="wrap">
+    <div class="sec-center">
+      <span class="sec-tag">Full Catalog</span>
+      <h2 class="sec-title">All <em>Products</em></h2>
+      <p class="sec-sub">Browse our complete collection — body sprays, attars, combos and more</p>
+    </div>
+    <div class="ornament">✦ ✦ ✦</div>
+    <div class="filter-row">
+      <button class="filter-btn active" onclick="filterProds(this,'all')">All</button>
+      <button class="filter-btn" onclick="filterProds(this,'combo')">Combo Sets</button>
+      <button class="filter-btn" onclick="filterProds(this,'spray')">Body Spray</button>
+      <button class="filter-btn" onclick="filterProds(this,'attar')">Attar &amp; Oud</button>
+    </div>
+    <div class="products-grid" id="prodGrid"></div>
+  </div>
+</section>
+
+<!-- ── SAMPLE SERVICE ── -->
+<section id="sample">
+  <div class="wrap">
+    <div class="glass2 sample-card">
+      <span class="sec-tag">Exclusive Service</span>
+      <h2 class="sec-title">Try Before You Buy — <em>Sample Service</em></h2>
+      <p class="sec-sub" style="margin:1rem auto">Not sure which fragrance suits you? Order tiny sample vials of any perfume in our collection and find your perfect match before buying a full bottle.</p>
+      <div class="sample-steps">
+        <div class="step">
+          <div class="step-n">01</div>
+          <div class="step-icon">💬</div>
+          <div class="step-title">Choose Scents</div>
+          <div class="step-desc">Pick up to 5 fragrances you'd like to try from our catalog</div>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-n">02</div>
+          <div class="step-icon">🧪</div>
+          <div class="step-title">Get Samples</div>
+          <div class="step-desc">We send you premium 2ml vials of your chosen fragrances</div>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-n">03</div>
+          <div class="step-icon">😍</div>
+          <div class="step-title">Find Your Fav</div>
+          <div class="step-desc">Wear them, feel them — find the scent that speaks to your soul</div>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-n">04</div>
+          <div class="step-icon">📦</div>
+          <div class="step-title">Order Full Size</div>
+          <div class="step-desc">Order your perfect bottle with confidence via COD</div>
+        </div>
+      </div>
+      <button class="btn-prim" onclick="openWA()">💬 Request Samples on WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── EVENTS ── -->
+<section id="events">
+  <div class="wrap">
+    <div class="sec-center">
+      <span class="sec-tag">Special Services</span>
+      <h2 class="sec-title">Live <em>Perfume Making</em> Events</h2>
+      <p class="sec-sub">Bring the magic of fragrance to your special occasions</p>
+    </div>
+    <div class="events-grid">
+      <div class="glass event-card" data-icon="💍">
+        <span class="event-tag">✦ Marriage Events</span>
+        <h3 class="event-title">Wedding Fragrance Experience</h3>
+        <p class="event-desc">Make your wedding day unforgettable with a live perfume-making station. Guests create their own personal fragrance as a beautiful keepsake memory.</p>
+        <div class="event-features">
+          <div class="ef">Live perfume blending by our master perfumer</div>
+          <div class="ef">Custom labelled bottles with bride &amp; groom names and date</div>
+          <div class="ef">Fragrance gifting packages for wedding favors</div>
+          <div class="ef">Bridal &amp; groom signature scent creation</div>
+        </div>
+      </div>
+      <div class="glass event-card" data-icon="🎉">
+        <span class="event-tag">✦ All Events</span>
+        <h3 class="event-title">Corporate &amp; Celebration Events</h3>
+        <p class="event-desc">From Eid celebrations and corporate gatherings to birthday parties and cultural festivals — we bring the timeless art of perfumery to every occasion.</p>
+        <div class="event-features">
+          <div class="ef">Eid special fragrance gifting packages</div>
+          <div class="ef">Corporate event branded perfume experiences</div>
+          <div class="ef">Birthday &amp; anniversary scent creation</div>
+          <div class="ef">Cultural &amp; religious event fragrance setups</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <button class="btn-prim" onclick="openWA()">📞 Book an Event</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── DELIVERY ── -->
+<section id="delivery">
+  <div class="wrap">
+    <div class="sec-center">
+      <span class="sec-tag">Nationwide Shipping</span>
+      <h2 class="sec-title">Delivered to Your <em>Doorstep</em></h2>
+      <p class="sec-sub">We ship all across India with care — safe, elegant, on time</p>
+    </div>
+    <div class="del-grid">
+      <div class="glass del-card">
+        <span class="del-icon">🇮🇳</span>
+        <div class="del-title">Pan-India Delivery</div>
+        <div class="del-desc">We ship to every corner of India. <span class="del-highlight">All 28 states covered.</span></div>
+      </div>
+      <div class="glass del-card">
+        <span class="del-icon">💵</span>
+        <div class="del-title">Cash on Delivery</div>
+        <div class="del-desc"><span class="del-highlight">COD available</span> on all orders. Pay only when you receive. No advance needed.</div>
+      </div>
+      <div class="glass del-card">
+        <span class="del-icon">📦</span>
+        <div class="del-title">Secure Packaging</div>
+        <div class="del-desc">Every bottle wrapped in luxury packaging — arrives safe and ready to gift.</div>
+      </div>
+      <div class="glass del-card">
+        <span class="del-icon">⚡</span>
+        <div class="del-title">Fast Dispatch</div>
+        <div class="del-desc">Dispatched within <span class="del-highlight">24–48 hours</span>. WhatsApp tracking updates.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY ── -->
+<section>
+  <div class="wrap">
+    <div class="sec-center">
+      <span class="sec-tag">Why Saudagar</span>
+      <h2 class="sec-title">The <em>Saudagar</em> Promise</h2>
+    </div>
+    <div class="why-grid">
+      <div class="glass why-card"><div class="why-icon">💎</div><div class="why-title">Premium Ingredients</div><div class="why-desc">Genuine oud, pure rose attar, and real sandalwood. No artificial shortcuts.</div></div>
+      <div class="glass why-card"><div class="why-icon">⏳</div><div class="why-title">Long Lasting</div><div class="why-desc">Exceptional longevity — one application lasts from morning till night.</div></div>
+      <div class="glass why-card"><div class="why-icon">🌿</div><div class="why-title">Cruelty-Free &amp; Halal</div><div class="why-desc">Ethically sourced, cruelty-free, and follows halal manufacturing standards.</div></div>
+      <div class="glass why-card"><div class="why-icon">✨</div><div class="why-title">Exclusive Collections</div><div class="why-desc">Unique blends inspired by the soul of Arabic perfumery and Indian tradition.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section>
+  <div class="wrap">
+    <div class="sec-center">
+      <span class="sec-tag">Customer Love</span>
+      <h2 class="sec-title">What Our <em>Customers</em> Say</h2>
+    </div>
+    <div class="test-grid">
+      <div class="glass test-card">
+        <div class="stars">★★★★★</div>
+        <p class="test-q">"Ameer Al Oud is absolutely magnificent. The longevity is unbelievable — I wore it to Jumu'ah and received compliments all day. Mashallah, truly premium quality."</p>
+        <div class="test-auth"><strong>Mohammed Arif</strong> — Hyderabad</div>
+      </div>
+      <div class="glass test-card">
+        <div class="stars">★★★★★</div>
+        <p class="test-q">"The live perfume making event at my brother's wedding was the highlight of the whole celebration. Every guest was amazed. Will book again for our next event!"</p>
+        <div class="test-auth"><strong>Fathima Begum</strong> — Vijayawada</div>
+      </div>
+      <div class="glass test-card">
+        <div class="stars">★★★★★</div>
+        <p class="test-q">"The sample service is genius! I tried 4 fragrances and picked Arabic Style Balilour. COD made it so easy. Fast delivery and the packaging was so beautiful."</p>
+        <div class="test-auth"><strong>Suresh Kumar</strong> — Visakhapatnam</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="wrap">
+    <div class="glass2 contact-card">
+      <span class="sec-tag">Get In Touch</span>
+      <h2 class="sec-title">Visit or <em>Order Online</em></h2>
+      <div class="contact-grid">
+        <div class="glass contact-item">
+          <span class="contact-icon">📍</span>
+          <div class="contact-label">Location</div>
+          <div class="contact-val">Anakapalle<br>Andhra Pradesh 531001</div>
+        </div>
+        <div class="glass contact-item">
+          <span class="contact-icon">📧</span>
+          <div class="contact-label">Email</div>
+          <div class="contact-val"><a href="mailto:saudagarperfumers@gmail.com">saudagarperfumers@gmail.com</a></div>
+        </div>
+        <div class="glass contact-item">
+          <span class="contact-icon">📸</span>
+          <div class="contact-label">Instagram</div>
+          <div class="contact-val"><a href="https://instagram.com/saudagar_perfumers" target="_blank">@saudagar_perfumers</a></div>
+        </div>
+        <div class="glass contact-item">
+          <span class="contact-icon">🌐</span>
+          <div class="contact-label">Website</div>
+          <div class="contact-val"><a href="https://www.saudagarperfumers.com" target="_blank">saudagarperfumers.com</a></div>
+        </div>
+      </div>
+      <button class="wa-big" onclick="openWA()">
+        <span style="font-size:1.3rem">💬</span> Order on WhatsApp Now
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="wrap">
+    <div class="footer-arabic">الله أكبر</div>
+    <div class="footer-logo">Saudagar Perfumers</div>
+    <div class="footer-sub">Premium Fragrances · Anakapalle, Andhra Pradesh</div>
+    <div class="gold-line"></div>
+    <div class="footer-links">
+      <a href="#featured">Collections</a>
+      <a href="#products">All Products</a>
+      <a href="#sample">Sample Service</a>
+      <a href="#events">Events</a>
+      <a href="#delivery">Delivery</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p class="footer-copy">© 2025 Saudagar Perfumers. All rights reserved. | saudagarperfumers@gmail.com</p>
+  </div>
+</footer>
+
+<script>
+/* ── PRODUCTS DATA ── */
+const products=[
+  {name:"Ocean Blue",vol:"100ml",price:"₹1,000",tag:"bestseller",bg:"pb1",icon:"🌊",notes:"Aquatic · Sea Salt · Musk",cat:"spray"},
+  {name:"White Code",vol:"100ml",price:"₹1,000",tag:"bestseller",bg:"pb4",icon:"🤍",notes:"Vanilla · Amber · Woods",cat:"spray"},
+  {name:"B&B Spa Perfumes Combo",vol:"Combo",price:"₹1,000",tag:"new",bg:"pb2",icon:"🧴",notes:"Spa · Fresh · Relaxing",cat:"combo"},
+  {name:"New Spa Attar Combo",vol:"Set",price:"₹799",tag:"new",bg:"pb3",icon:"✨",notes:"Floral · Oud · Musky",cat:"combo"},
+  {name:"Black Code",vol:"100ml",price:"₹1,000",tag:"bestseller",bg:"pb6",icon:"🖤",notes:"Pepper · Amber · Sandalwood",cat:"spray"},
+  {name:"One Savage",vol:"",price:"₹799",tag:"bestseller",bg:"pb1",icon:"🔥",notes:"Bold · Woody · Intense",cat:"spray"},
+  {name:"Purple Oud",vol:"",price:"₹999",tag:"limited",bg:"pb4",icon:"💜",notes:"Oud · Saffron · Musk",cat:"attar"},
+  {name:"Ginger Camphor Burner",vol:"",price:"₹499",tag:"new",bg:"pb2",icon:"🌿",notes:"Ginger · Camphor · Fresh",cat:"attar"},
+  {name:"Wooden Camphor Burner",vol:"",price:"₹549",tag:"new",bg:"pb3",icon:"🪵",notes:"Wood · Camphor · Earth",cat:"attar"},
+  {name:"Hamam Counter Set",vol:"Set",price:"₹799",tag:"new",bg:"pb5",icon:"🛁",notes:"Bath · Soap · Refreshing",cat:"combo"},
+  {name:"Sheraya Amber",vol:"150ml",price:"₹899",tag:"bestseller",bg:"pb3",icon:"🍂",notes:"Amber · Warm Spice · Vanilla",cat:"spray"},
+  {name:"Arabic Style Balilour",vol:"",price:"₹1,199",tag:"limited",bg:"pb6",icon:"🕌",notes:"Arabic Oud · Rose · Musk",cat:"attar"},
+  {name:"Memories",vol:"",price:"₹799",tag:"bestseller",bg:"pb1",icon:"🌸",notes:"Floral · Powdery · Soft",cat:"spray"},
+  {name:"Ipa Baldwini Combo",vol:"Combo",price:"₹999",tag:"new",bg:"pb4",icon:"🎁",notes:"Refreshing · Zesty · Clean",cat:"combo"},
+  {name:"Gangpur 50ml",vol:"50ml",price:"₹499",tag:"bestseller",bg:"pb5",icon:"🌺",notes:"Traditional · Floral · Indian",cat:"attar"},
+  {name:"Ameer Al Oud",vol:"110ml",price:"₹1,499",tag:"limited",bg:"pb6",icon:"👑",notes:"Premium Oud · Bakhoor · Royal",cat:"attar"},
+  {name:"Nando 50ml",vol:"50ml",price:"₹449",tag:"new",bg:"pb2",icon:"🍃",notes:"Green · Herbal · Sport",cat:"spray"},
+  {name:"Irl 50ml",vol:"50ml",price:"₹399",tag:"new",bg:"pb3",icon:"💛",notes:"Citrus · Sweet · Playful",cat:"spray"},
+  {name:"Ink 50ml",vol:"50ml",price:"₹399",tag:"new",bg:"pb4",icon:"🖊️",notes:"Woody · Ink · Modern",cat:"spray"},
+  {name:"Classic Combo",vol:"Combo",price:"₹1,299",tag:"bestseller",bg:"pb5",icon:"🎀",notes:"Best 3 classics bundled",cat:"combo"},
+  {name:"Casava Combo",vol:"Combo",price:"₹999",tag:"new",bg:"pb6",icon:"🧡",notes:"Oriental · Warm · Rich",cat:"combo"},
+  {name:"Gucci 100ml",vol:"100ml",price:"₹1,100",tag:"bestseller",bg:"pb1",icon:"💚",notes:"Floral · Green · Luxe",cat:"spray"},
+  {name:"Pure Sandal 50ml",vol:"50ml",price:"₹599",tag:"limited",bg:"pb2",icon:"🪵",notes:"Pure Sandalwood · Earthy · Calm",cat:"attar"},
+  {name:"Black Code 50ml",vol:"50ml",price:"₹699",tag:"bestseller",bg:"pb6",icon:"🖤",notes:"Dark · Intense · Masculine",cat:"spray"},
+  {name:"Cupid Blue",vol:"",price:"₹799",tag:"new",bg:"pb1",icon:"💙",notes:"Romantic · Blue · Fresh",cat:"spray"},
+  {name:"Janella 50ml",vol:"50ml",price:"₹449",tag:"new",bg:"pb3",icon:"🌼",notes:"Light · Floral · Feminine",cat:"spray"},
+  {name:"Chicken Musk 50ml",vol:"50ml",price:"₹699",tag:"bestseller",bg:"pb6",icon:"🤍",notes:"White Musk · Skin Scent · Pure",cat:"attar"},
+  {name:"Saudagar Signature 50ml",vol:"50ml",price:"₹899",tag:"limited",bg:"pb4",icon:"⭐",notes:"Our signature house blend",cat:"spray"},
+  {name:"Sweet Jasmine 50ml",vol:"50ml",price:"₹549",tag:"bestseller",bg:"pb2",icon:"🌸",notes:"Jasmine · Sweet · Indian",cat:"attar"},
+  {name:"One Million 50ml",vol:"50ml",price:"₹799",tag:"bestseller",bg:"pb3",icon:"🥇",notes:"Gold · Spicy · Seductive",cat:"spray"},
+  {name:"Oud Deeds 50ml",vol:"50ml",price:"₹749",tag:"limited",bg:"pb6",icon:"🕯️",notes:"Deep Oud · Smoky · Oriental",cat:"attar"},
+  {name:"White Case 50ml",vol:"50ml",price:"₹599",tag:"new",bg:"pb1",icon:"🤍",notes:"Clean · White · Minimal",cat:"spray"},
+  {name:"Door Bazar 50ml",vol:"50ml",price:"₹499",tag:"new",bg:"pb2",icon:"🌟",notes:"Traditional · Bazaar Blend",cat:"attar"},
+  {name:"Sheraya Amber Filters",vol:"",price:"₹350",tag:"new",bg:"pb3",icon:"🔮",notes:"Amber Fragrance Filters",cat:"attar"},
+  {name:"Ipa Attar Set",vol:"Set",price:"₹599",tag:"sample",bg:"pb1",icon:"🧪",notes:"Attar · Floral · Exotic",cat:"attar"},
+  {name:"Silk 50ml Combo",vol:"50ml",price:"₹549",tag:"new",bg:"pb5",icon:"🪡",notes:"Silky · Soft · Sensual",cat:"combo"},
+];
+
+const tagMap={bestseller:'tag-bestseller',new:'tag-new',limited:'tag-limited',sample:'tag-sample'};
+const tagLabel={bestseller:'Best Seller',new:'New',limited:'Limited',sample:'Sample Pack'};
+
+function renderProds(filter){
+  const grid=document.getElementById('prodGrid');
+  const list=filter==='all'?products:products.filter(p=>p.cat===filter);
+  grid.innerHTML=list.map(p=>`
+    <div class="glass prod-card">
+      <div class="prod-img ${p.bg}">${p.icon}</div>
+      <div class="prod-body">
+        ${p.tag?`<span class="prod-tag ${tagMap[p.tag]}">${tagLabel[p.tag]}</span>`:''}
+        <div class="prod-name">${p.name}</div>
+        ${p.vol?`<div class="prod-vol">${p.vol}</div>`:''}
+        <div class="prod-notes">${p.notes}</div>
+        <div class="prod-footer">
+          <div class="prod-price">${p.price}</div>
+          <button class="prod-add" onclick="orderProd(this,'${p.name}')">+</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function filterProds(btn,cat){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProds(cat);
+}
+
+function orderProd(btn,name){
+  btn.textContent='✓';btn.style.background='var(--gold)';btn.style.color='#080604';
+  setTimeout(()=>{btn.textContent='+';btn.style.background='';btn.style.color='';},1800);
+  const msg=encodeURIComponent(`Assalamu Alaikum! I want to order: ${name} from Saudagar Perfumers.`);
+  window.open(`https://wa.me/91XXXXXXXXXX?text=${msg}`,'_blank');
+}
+
+function orderFeat(name){
+  const msg=encodeURIComponent(`Assalamu Alaikum! I want to order: ${name} from Saudagar Perfumers.`);
+  window.open(`https://wa.me/91XXXXXXXXXX?text=${msg}`,'_blank');
+}
+
+function openWA(){
+  window.open('https://wa.me/91XXXXXXXXXX?text=Assalamu+Alaikum!+I+want+to+order+from+Saudagar+Perfumers.','_blank');
+}
+
+renderProds('all');
+
+/* Scroll fade-in */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.animation='fadeUp 0.6s ease forwards';e.target.style.opacity='1';}});
+},{threshold:0.07});
+setTimeout(()=>{
+  document.querySelectorAll('.glass,.glass2,.feat-card').forEach(el=>{el.style.opacity='0';io.observe(el);});
+},400);
+</script>
+</body>
+</html>
